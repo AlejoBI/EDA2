@@ -1,0 +1,177 @@
+//Todos los metodos de array
+
+//Arrays de ejemplo para los metodos
+const A1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const A2 = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+const Asort = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+// 1. concat()
+// El método concat() se utiliza para unir dos o más arrays. Este método no cambia los arrays existentes, sino que devuelve un nuevo array.
+const A3 = A1.concat(A2);
+console.log(A3); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+// 2. copyWithin()
+// El método copyWithin() copia una secuencia de elementos de un array dentro de la misma array.
+const A4 = A1.copyWithin(0, 3, 6);
+console.log(A4); // [4, 5, 6, 4, 5, 6, 7, 8, 9, 10]  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 3. entries()
+// El método entries() devuelve un nuevo objeto Array Iterator que contiene los pares clave/valor para cada índice en el array.
+const A5 = A1.entries();
+console.log(A5.next().value); // [0, 1]  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 4. every()
+// El método every() comprueba si todos los elementos en un array pasan una prueba (proporcionada como una función).
+const A6 = A1.every((x) => x < 20);
+console.log(A6); // true  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 5. fill()
+// El método fill() llena los elementos de un array con un valor estático.
+const A7 = A1.fill(0);
+console.log(A7); // [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 6. filter()
+// El método filter() crea un nuevo array con todos los elementos que pasan la prueba implementada por la función proporcionada.
+const A8 = A1.filter((x) => x > 5);
+console.log(A8); // [6, 7, 8, 9, 10]  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 7. find()
+// El método find() devuelve el primer elemento que cumple con la condición dada.
+const A9 = A1.find((x) => x > 5);
+console.log(A9); // 6  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 8. findIndex()
+// El método findIndex() devuelve el índice del primer elemento que cumple con la condición dada.
+const A10 = A1.findIndex((x) => x > 5);
+console.log(A10); // 5  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 9. forEach()
+// El método forEach() ejecuta una función proporcionada una vez por cada elemento en un array.
+A1.forEach((x) => console.log(x)); // 1 2 3 4 5 6 7 8 9 10  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 10. from()
+// El método from() crea una nueva instancia de Array a partir de un objeto iterable.
+const A11 = Array.from("Hello");
+console.log(A11); // ["H", "e", "l", "l", "o"]  (H, e, l, l, o)
+
+// 11. includes()
+// El método includes() determina si un array incluye un determinado elemento, devuelve true o false según corresponda.
+const A12 = A1.includes(5);
+console.log(A12); // true  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 12. indexOf()
+// El método indexOf() devuelve el primer índice en el que se encuentra un elemento dado en el array, o -1 si no está presente.
+const A13 = A1.indexOf(5);
+console.log(A13); // 4  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 13. isArray()
+// El método isArray() determina si el valor pasado es un Array.
+const A14 = Array.isArray(A1);
+console.log(A14); // true  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 14. join()
+// El método join() une todos los elementos de un array en una cadena.
+const A15 = A1.join("-");
+console.log(A15); // 1-2-3-4-5-6-7-8-9-10  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 15. keys()
+// El método keys() devuelve un nuevo objeto Array Iterator que contiene las claves para cada índice en el array.
+const A16 = A1.keys();
+console.log(A16.next().value); // 0  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 16. lastIndexOf()
+// El método lastIndexOf() devuelve el último índice en el que se encuentra un elemento dado en el array, o -1 si no está presente.
+const A17 = A1.lastIndexOf(5);
+console.log(A17); // 4  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 17. map()
+// El método map() crea un nuevo array con los resultados de llamar a una función para cada elemento de un array.
+const A18 = A1.map((x) => x * 2);
+console.log(A18); // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+// 18. pop()
+// El método pop() elimina el último elemento de un array y lo devuelve.
+const A19 = A1.pop();
+console.log(A19); // 10  (1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+// 19. push()
+// El método push() añade uno o más elementos al final de un array y devuelve la nueva longitud del array.
+const A20 = A1.push(11);
+console.log(A20); // 11  (1, 2, 3, 4, 5, 6, 7, 8, 9, 11)
+
+// 20. reduce()
+// El método reduce() ejecuta una función reductora sobre cada elemento de un array, devolviendo un único valor.
+const A21 = A1.reduce((acc, x) => acc + x);
+console.log(A21); // 55  (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10)  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 21. reduceRight()
+// El método reduceRight() aplica una función contra un acumulador y cada valor de la matriz (de derecha a izquierda) para reducirlo a un solo valor.
+const A22 = A1.reduceRight((acc, x) => acc + x);
+console.log(A22); // 55  (10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1)  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 22. reverse()
+// El método reverse() invierte el orden de los elementos de un array.
+const A23 = A1.reverse();
+console.log(A23); // [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 23. shift()
+// El método shift() elimina el primer elemento del array y lo devuelve.
+const A24 = A1.shift();
+console.log(A24); // 10  (1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+// 24. slice()
+// El método slice() devuelve una copia de una parte del array dentro de un nuevo array empezando por inicio hasta fin (fin no incluido).
+const A25 = A1.slice(2, 5);
+console.log(A25); // [3, 4, 5]  (1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+// 25. some()
+// El método some() comprueba si al menos un elemento del array cumple con la condición dada.
+const A26 = A1.some((x) => x > 5);
+console.log(A26); // true  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+// 26. sort()
+// El método sort() ordena los elementos de un array localmente y devuelve el array ordenado.
+const A27 = Asort.sort();
+console.log(A27); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  (10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+
+// 27. splice()
+// El método splice() cambia el contenido de un array eliminando elementos existentes y/o agregando nuevos elementos.
+const A28 = A1.splice(2, 2, 11, 12);
+console.log(A28); // [3, 4]  (1, 2, 11, 12, 5, 6, 7, 8, 9, 10)
+
+// 28. toString()
+// El método toString() devuelve una cadena de texto que representa al array y a sus elementos.
+const A29 = A1.toString();
+console.log(A29); // 1,2,11,12,5,6,7,8,9,10  (1, 2, 11, 12, 5, 6, 7, 8, 9, 10)
+
+// 29. unshift()
+// El método unshift() agrega uno o más elementos al inicio del array y devuelve la nueva longitud del array.
+const A30 = A1.unshift(0);
+console.log(A30); // 11  (0, 1, 2, 11, 12, 5, 6, 7, 8, 9, 10)
+
+// 30. values()
+// El método values() devuelve un nuevo objeto Array Iterator que contiene los valores para cada índice en el array.
+const A31 = A1.values();
+console.log(A31.next().value); // 0  (0, 1, 2, 11, 12, 5, 6, 7, 8, 9, 10)
+
+// 31. flat()
+// El método flat() crea una nueva matriz con todos los elementos de sub-array concatenados en ella de forma recursiva hasta la profundidad especificada.
+const A32 = [1, 2, [3, 4, [5, 6]]];
+const A33 = A32.flat(2);
+console.log(A33); // [1, 2, 3, 4, 5, 6]
+
+// 32. flatMap()
+// El método flatMap() primero mapea cada elemento usando una función de mapeo, luego aplana el resultado en un nuevo array.
+const A34 = [1, 2, 3, 4];
+const A35 = A34.flatMap((x) => [x * 2]);
+console.log(A35); // [2, 4, 6, 8]
+
+// 33. toLocaleString()
+// El método toLocaleString() devuelve una cadena que representa a los elementos del array.
+const A36 = A1.toLocaleString();
+console.log(A36); // 0,1,2,11,12,5,6,7,8,9,10  (0, 1, 2, 11, 12, 5, 6, 7, 8, 9, 10)
+
+// 34. Constructor
+// El constructor Array crea objetos array.
+const A37 = new Array(5);
+console.log(A37); // [empty x 5]
