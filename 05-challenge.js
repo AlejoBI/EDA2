@@ -1,73 +1,64 @@
-class Node {
-    constructor(name, birthDate) {
-        this.name = name;
-        this.birthDate = birthDate;
-        this.children = [];
-    }
-}
-
 class FamilyTree {
     constructor() {
         this.root = null;
     }
 
     insert(name, birthDate, parentName = null) {
-        const newNode = new Node(name, birthDate);
-        if (parentName === null) {
-            if (this.root === null) {
-                this.root = newNode;
-            } else {
-                throw new Error("Root node already exists");
-            }
+        const newNode = { name, birthDate, children: [] };
+        if (this.root === null) {
+            this.root = newNode;
         } else {
-            const parentNode = this.findNode(this.root, parentName);
-            if (!parentNode) {
-                throw new Error(`Parent node with name ${parentName} not found`);
+            const parent = this.findNode(this.root, parentName);
+            if (parent) {
+                parent.children.push(newNode);
             }
-            parentNode.children.push(newNode);
         }
     }
 
     findNode(node, name) {
-        if (!node) return null;
-        if (node.name === name) return node;
+        if (node.name === name) {
+            return node;
+        }
         for (let child of node.children) {
-            const found = this.findNode(child, name);
-            if (found) return found;
+            const result = this.findNode(child, name);
+            if (result) {
+                return result;
+            }
         }
         return null;
     }
 
-    preOrder(node = this.root) {
-        if (!node) return;
+    inOrder(node = this.root) {
+        if (node === null) {
+            return;
+        }
+        if (node.children.length > 0) {
+            this.inOrder(node.children[0]); // Subárbol izquierdo
+        }
+        console.log(node.name); // Nodo raíz
+        for (let i = 1; i < node.children.length; i++) {
+            this.inOrder(node.children[i]); // Subárbol derecho
+        }
+    }
 
+    preOrder(node = this.root) {
+        if (node === null) {
+            return;
+        }
         console.log(node.name);
-        node.children.forEach(child => {
+        for (let child of node.children) {
             this.preOrder(child);
-        });
+        }
     }
 
     postOrder(node = this.root) {
-        if (!node) return;
-
-        node.children.forEach(child => {
+        if (node === null) {
+            return;
+        }
+        for (let child of node.children) {
             this.postOrder(child);
-        });
-        console.log(node.name);
-    }
-
-    inOrder(node = this.root) {
-        if (!node) return;
-
-        if (node.children.length > 1) {
-            this.inOrder(node.children[0]);
         }
         console.log(node.name);
-        if (node.children.length > 1) {
-            for (let i = 1; i < node.children.length; i++) {
-                this.inOrder(node.children[i]);
-            }
-        }
     }
 }
 
