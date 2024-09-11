@@ -1,33 +1,23 @@
 import "./App.css";
 import { useState } from "react";
 
+import AddCategory from "./components/AddCategory";
+import GifGrid from "./components/GifGrid";
+
 function App() {
   const [categories, setCategories] = useState([]);
-  const [category, setCategory] = useState("");
 
-  const addCategory = () => {
+  const onAddCategory = (category) => {
     setCategories([...categories, category]);
-    setCategory("");
-  };
-
-  const setCategoryValue = (e) => {
-    setCategory(e.target.value);
   };
 
   return (
     <>
-      <h1>Add Categories</h1>
-      <input
-        type="text"
-        value={category}
-        onChange={(e) => setCategoryValue(e)}
-      />
-      <button onClick={() => addCategory()}>addCategorys</button>
-      <ul>
-        {categories.map((category, index) => {
-          return <li key={index}>{category}</li>;
-        })}
-      </ul>
+      <h1>GiftExpert</h1>
+      <AddCategory onAddCategory={onAddCategory} />
+      {categories.map((category, index) => {
+        return <GifGrid category={category} key={index} />;
+      })}
     </>
   );
 }
