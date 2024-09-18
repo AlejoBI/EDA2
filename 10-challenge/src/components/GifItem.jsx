@@ -1,8 +1,7 @@
-const GifItem = ({ gif }) => {
+const GifItem = ({ tittle, url }) => {
   return (
-    <div>
-      <img src={gif.url} alt={gif.title} />
-      <p>{gif.title}</p>
+    <div className="card">
+      <img src={url} alt={tittle} />
     </div>
   );
 };

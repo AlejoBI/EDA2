@@ -1,14 +1,13 @@
-import './App.css'
-import Count from './components/Count'
+import "./App.css";
+import Counter from "./components/Counter";
 
 function App() {
-
   return (
     <>
       <h1>Counter App</h1>
-      <Count />
+      <Counter value={30} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
