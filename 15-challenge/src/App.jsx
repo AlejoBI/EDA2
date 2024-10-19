@@ -1,12 +1,12 @@
-import "./App.css";
-import TodoApp from "./components/TodoApp";
+import React from "react";
+import MultipleCustomHooks from "./components/MultipleCustomHooks";
 
-function App() {
+const App = () => {
   return (
     <>
-      <TodoApp />
+      <MultipleCustomHooks />
     </>
   );
-}
+};
 
 export default App;
