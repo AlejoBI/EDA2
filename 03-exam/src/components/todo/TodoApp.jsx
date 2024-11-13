@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addTodo, deleteTodo } from "../../slices/todoSlice";
+import { addTodo, deleteTodo, todoDone } from "../../slices/todoSlice";
 import TodoAdd from "./TodoAdd";
 import TodoList from "./TodoList";
 import styles from "./TodoApp.module.css";
@@ -16,6 +16,10 @@ const TodoApp = () => {
   const handleDeleteTodo = (todoId) => {
     dispatch(deleteTodo(todoId));
   };
+
+  const handleTodoDone = (todoId) => {
+    dispatch(todoDone(todoId));
+  }
 
   return (
     <>
@@ -33,7 +37,7 @@ const TodoApp = () => {
             <TodoAdd onNewTodo={handleNewTodo} />
           </div>
           <div className={styles.col}>
-            <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} />
+            <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} onDoneTodo={handleTodoDone} />
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ const initialState = [
         done: false,
     },
     {
-        id: new Date().getTime(),
+        id: new Date().getTime() + 1,
         description: 'Hacer el examen',
         done: true,
     }
@@ -23,8 +23,19 @@ const todoSlice = createSlice({
         deleteTodo: (state, action) => {
             return state.filter(todo => todo.id !== action.payload);
         },
+        todoDone: (state, action) => {
+            return state.map(todo => {
+                if (todo.id === action.payload) {
+                    return {
+                        ...todo,
+                        done: !todo.done,
+                    };
+                }
+                return todo;
+            });
+        },
     },
 });
 
-export const { addTodo, deleteTodo } = todoSlice.actions;
+export const { addTodo, deleteTodo, todoDone } = todoSlice.actions;
 export default todoSlice.reducer;
